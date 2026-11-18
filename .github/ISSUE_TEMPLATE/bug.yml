@@ -1,0 +1,17 @@
+name: Error / Bug
+description: Informa d'un error · Report a bug
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes: {label: Versió · Version, placeholder: "1.0"}
+  - type: input
+    id: browser
+    attributes: {label: Navegador i dispositiu · Browser and device, placeholder: "Chrome 130, Android 14"}
+  - type: textarea
+    id: steps
+    attributes: {label: Passos per reproduir-ho · Steps to reproduce}
+    validations: {required: true}
+  - type: textarea
+    id: error
+    attributes: {label: Error o captura · Error or screenshot}

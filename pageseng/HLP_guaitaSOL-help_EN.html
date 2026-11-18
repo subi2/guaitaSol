@@ -1,0 +1,67 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>guaitaSOL · User guide</title>
+<style>:root{--bg:#0E1116;--bg2:#171B21;--card:#1E232B;--bd:#2A313B;--tx:#E7EAEE;--mut:#8B939F;--a:#D6FB41;--a2:#FF2ECC;--a3:#00E5FF;--a4:#FFE500;--on:#1A2000}
+:root[data-t=l]{--bg:#F3F5F7;--bg2:#E8ECF0;--card:#FFFFFF;--bd:#D5DAE1;--tx:#14181E;--mut:#566070;--a:#4F6200;--on:#FFFFFF}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+code,kbd,.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace}
+.cells{display:inline-grid;grid-template-columns:repeat(2,13px);gap:2px;vertical-align:middle}.cells span{display:block;width:13px;height:13px}
+.cells span:nth-child(1){background:#D6FB41}.cells span:nth-child(2){background:#FF2ECC}.cells span:nth-child(3){background:#00E5FF}.cells span:nth-child(4){background:#FFE500}
+.brand{display:flex;align-items:center;gap:10px;font:700 15px 'IBM Plex Mono',monospace;letter-spacing:.2em}.brand small{font-weight:400;color:var(--mut);letter-spacing:.1em;text-transform:lowercase;font-size:12px}
+.tag{display:inline-block;margin:26px 0 10px;padding:2px 10px;border:1px solid var(--a);color:var(--a);font:12px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}h1 em{color:var(--a);font-style:normal}
+.lead{max-width:760px;color:var(--mut);font-size:18px}
+h2{font:12px 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin:34px 0 0}
+.st{font-size:30px;font-weight:700;margin:2px 0 14px;letter-spacing:-.01em}
+a{color:var(--a)}
+.note{border-left:3px solid var(--a);background:var(--card);padding:10px 16px;margin:16px 0}.note.warn{border-color:var(--a4)}
+kbd{background:var(--card);border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:12.5px}
+code{background:var(--card);padding:1px 5px;border-radius:3px;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--bd);padding:16px}.card b{color:var(--a)}.card p{margin:6px 0 0;font-size:15px}
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:26px 24px;color:var(--mut);font-size:13px}
+footer .in{max-width:1100px;margin:0 auto}.fb{display:flex;align-items:center;gap:8px;font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:var(--tx);margin-bottom:10px}
+.fb .cells{grid-template-columns:repeat(2,6px)}.fb .cells span{width:6px;height:6px}
+#th{position:fixed;top:12px;right:12px;background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:4px 10px;cursor:pointer;font:12px 'IBM Plex Mono',monospace;z-index:9}
+.hero{padding:56px 24px 40px;max-width:1100px;margin:0 auto}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:220px 1fr;gap:40px}
+nav.toc{position:sticky;top:20px;align-self:start;font:13px 'IBM Plex Mono',monospace;display:flex;flex-direction:column;gap:2px}
+nav.toc a{color:var(--mut);text-decoration:none;padding:5px 10px;border-left:2px solid var(--bd)}
+nav.toc a:hover,nav.toc a.on{color:var(--a);border-color:var(--a);background:var(--bg2)}
+section{padding:8px 0 28px;scroll-margin-top:16px}
+ul{padding-left:22px}li{margin:4px 0}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}nav.toc{position:static;flex-direction:row;flex-wrap:wrap}}
+</style></head><body>
+<button id="th" title="theme">◐</button>
+<header class="hero"><div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA<small>sol</small></div>
+<span class="tag">User guide · 1.0</span><h1>guaita<em>SOL</em></h1><p class="lead">Sun chart, camera with sun paths and horizon profile in a single HTML file for phone and tablet. It connects to no server and works offline: your position, profile and images never leave the device.</p>
+<p><a href="index.html">▶ Open the app</a> · <a href="../pagescat/HLP_guaitaSOL-ajuda.html">Català</a></p>
+<div class="note warn">Language: the application and this page are in Catalan and English. To read it in another language (Spanish, German…), turn on your browser's translation (Chrome: ⋮ menu › Translate).</div></header>
+<div class="wrap"><nav class="toc"><a href="#s-intro">What it does</a><a href="#s-diagram">Sun chart</a><a href="#s-cam">Camera and sensors</a><a href="#s-hor">Horizon profile</a><a href="#s-hours">Direct sun hours</a><a href="#s-priv">Privacy and security</a><a href="#s-limits">Limits</a><a href="#s-keys">Shortcuts</a><a href="#s-install">Install it as an app</a><a href="#s-about">About</a></nav><main>
+<section id="s-intro"><h2>01</h2><div class="st">What it does</div><p><b>guaitaSOL 1.0</b> computes where the Sun is at any place, date and time, and shows it four ways: <b>sun chart</b>, <b>camera</b> with the paths over the live image, <b>horizon profile</b> and <b>direct sun hours</b>. It works offline, in a single file.</p></section>
+<section id="s-diagram"><h2>02</h2><div class="st">Sun chart</div><p>The diagram shows the Sun's altitude and azimuth through the day. The green line is the selected day; dots are clock hours. Yellow, blue and grey mark the summer solstice, the winter solstice and the equinox. Drag along the path to change the time.</p><ul><li><b>Stereographic</b>: the usual architectural projection, zenith at the centre and north up.</li><li><b>Equidistant</b>: altitudes are proportional to distance from the centre.</li><li><b>Cylindrical</b>: azimuth horizontal, altitude vertical.</li></ul><p>Hour lines can be <b>solar time</b> or <b>clock time</b> (analemmas, including daylight saving).</p></section>
+<section id="s-cam"><h2>03</h2><div class="st">Camera and sensors</div><p>Press <b>Compass</b> to enable the sensors and <b>Camera</b> to see the image. Solar paths are drawn over the real horizon. It needs <b>HTTPS</b> (for example GitHub Pages); from a local file the browser will not open the camera.</p><ul><li><b>iPhone</b>: asks for sensor permission; north comes from the iOS compass.</li><li><b>Android</b>: the absolute compass is used when available; otherwise orientation is relative and you must calibrate with the Sun.</li><li><b>No sensors</b>: the orientation simulator lets you try it on a computer.</li></ul><p>Phone sensors typically err by 5° to 10°. Use <b>Calibrate with the Sun</b> or adjust the heading by hand.</p></section>
+<section id="s-hor"><h2>04</h2><div class="st">Horizon profile</div><p>The profile is the line of obstacles (buildings, mountains, trees) seen from your spot. It is defined by (azimuth, altitude) points, interpolated between them. You can add them three ways:</p><ul><li>Aim the camera at the obstacle and press <b>Centre point</b>.</li><li>Turn on <b>Mark</b> and tap the camera image or the horizon chart.</li><li>Type them in, or import a JSON or CSV file (azimuth,altitude).</li></ul><p>The profile is stored on the device and shown in every view.</p></section>
+<section id="s-hours"><h2>05</h2><div class="st">Direct sun hours</div><p>It computes the day's direct sun hours, the total lost to obstacles, the yearly map (day × time) and the monthly average. CSV export covers the whole year. Results are geometric: clouds are not considered.</p></section>
+<section id="s-priv"><h2>06</h2><div class="st">Privacy and security</div><p>guaitaSOL sends nothing anywhere. A security policy (<code>connect-src 'none'</code>) stops the page from connecting to any server. Position, profile and photos live only on the device. The camera stores no image: it only displays it.</p><p>If you install it as an app (PWA), the browser only downloads the app's own files (manifest, icons and service worker) from the same site; never your data or anyone else's.</p><p>Preferences are kept in the browser's <code>localStorage</code>.</p></section>
+<section id="s-limits"><h2>07</h2><div class="st">Limits</div><ul><li>The solar calculation (NOAA algorithm) is within 0.05° in altitude and 0.15° in azimuth of high-precision ephemerides.</li><li>Atmospheric refraction uses a standard model; it may vary at very low horizons.</li><li>The compass depends on magnetic declination; set it in the place dialog.</li><li>Near metal objects or magnets the compass drifts.</li></ul></section>
+<section id="s-keys"><h2>08</h2><div class="st">Shortcuts</div><ul><li><code>←</code> <code>→</code> previous or next day</li><li><code>Space</code> animate the day</li><li><code>N</code> current date and time</li><li><code>L</code> place</li><li><code>M</code> mark points</li><li><code>Z</code> undo point</li><li><code>F1</code> help</li></ul></section>
+<section id="s-install"><h2>09</h2><div class="st">Install it as an app</div><p>The published version is a <b>PWA</b> (progressive web app): it installs to the home screen and works offline.</p><ul><li><b>Android (Chrome):</b> ⋮ menu → “Install app” or “Add to home screen”.</li><li><b>iPhone / iPad (Safari):</b> Share button → “Add to Home Screen”.</li><li><b>Desktop (Chrome, Edge):</b> install icon at the right of the address bar.</li></ul><p>It must be served over HTTPS (GitHub Pages does). Opened locally (<code>file://</code>) it works as a normal page, with no PWA and no camera.</p></section>
+<section id="s-about"><h2>10</h2><div class="st">About</div><p><b>guaitaSOL 1.0</b> · Guaita Apps suite.</p><p>Copyright (C) 2026 SBS BiM Consulting, Jordi Subirós. AGPL-3.0-only licence. IBM Plex fonts (SIL OFL 1.1) embedded.</p></section>
+</main></div>
+<footer><div class="in"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA · SOL</div>
+<p>SBS BIM Consulting 2026 · Copyright © 2026 Jordi Subirós · AGPL-3.0-only</p><p>Guaita Apps is distributed “as is”, without any warranty. The tools are designed from research and as technical and educational support; verification of the results and the responsibility arising from their use rest solely with the end user.</p></div></footer>
+<script>
+const ls=[...document.querySelectorAll('nav.toc a')],ss=ls.map(a=>document.querySelector(a.getAttribute('href')));
+function on(){let y=scrollY+120,k=0;ss.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i});ls.forEach((a,i)=>a.classList.toggle('on',i==k))}
+addEventListener('scroll',on);on();
+document.getElementById('th').onclick=()=>{const r=document.documentElement;r.dataset.t=r.dataset.t=='l'?'d':'l'};
+</script></body></html>

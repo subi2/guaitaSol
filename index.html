@@ -1,0 +1,79 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="ca" data-l="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>guaitaSOL 1.0</title>
+<meta name="description" content="guaitaSOL: carta solar, càmera amb trajectòries i perfil d'horitzó en un sol fitxer HTML, offline i privat. / Sun chart, camera and horizon profile in a single offline HTML file.">
+<meta property="og:type" content="website"><meta property="og:title" content="guaitaSOL 1.0">
+<meta property="og:description" content="Carta solar, càmera i perfil d'horitzó, offline i privat. / Sun chart, camera and horizon profile, offline and private.">
+<meta property="og:url" content="https://subi2.github.io/guaitaSol/"><meta property="og:image" content="https://subi2.github.io/guaitaSol/guaitaSOL_social_square.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="1200">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="guaitaSOL 1.0"><meta name="twitter:image" content="https://subi2.github.io/guaitaSol/guaitaSOL_social_square.png">
+<style>:root{--bg:#0E1116;--bg2:#171B21;--card:#1E232B;--bd:#2A313B;--tx:#E7EAEE;--mut:#8B939F;--a:#D6FB41;--a2:#FF2ECC;--a3:#00E5FF;--a4:#FFE500;--on:#1A2000}
+:root[data-t=l]{--bg:#F3F5F7;--bg2:#E8ECF0;--card:#FFFFFF;--bd:#D5DAE1;--tx:#14181E;--mut:#566070;--a:#4F6200;--on:#FFFFFF}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+code,kbd,.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace}
+.cells{display:inline-grid;grid-template-columns:repeat(2,13px);gap:2px;vertical-align:middle}.cells span{display:block;width:13px;height:13px}
+.cells span:nth-child(1){background:#D6FB41}.cells span:nth-child(2){background:#FF2ECC}.cells span:nth-child(3){background:#00E5FF}.cells span:nth-child(4){background:#FFE500}
+.brand{display:flex;align-items:center;gap:10px;font:700 15px 'IBM Plex Mono',monospace;letter-spacing:.2em}.brand small{font-weight:400;color:var(--mut);letter-spacing:.1em;text-transform:lowercase;font-size:12px}
+.tag{display:inline-block;margin:26px 0 10px;padding:2px 10px;border:1px solid var(--a);color:var(--a);font:12px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}h1 em{color:var(--a);font-style:normal}
+.lead{max-width:760px;color:var(--mut);font-size:18px}
+h2{font:12px 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin:34px 0 0}
+.st{font-size:30px;font-weight:700;margin:2px 0 14px;letter-spacing:-.01em}
+a{color:var(--a)}
+.note{border-left:3px solid var(--a);background:var(--card);padding:10px 16px;margin:16px 0}.note.warn{border-color:var(--a4)}
+kbd{background:var(--card);border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:12.5px}
+code{background:var(--card);padding:1px 5px;border-radius:3px;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--bd);padding:16px}.card b{color:var(--a)}.card p{margin:6px 0 0;font-size:15px}
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:26px 24px;color:var(--mut);font-size:13px}
+footer .in{max-width:1100px;margin:0 auto}.fb{display:flex;align-items:center;gap:8px;font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:var(--tx);margin-bottom:10px}
+.fb .cells{grid-template-columns:repeat(2,6px)}.fb .cells span{width:6px;height:6px}
+#th{position:fixed;top:12px;right:12px;background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:4px 10px;cursor:pointer;font:12px 'IBM Plex Mono',monospace;z-index:9}
+.top{position:fixed;top:12px;right:12px;display:flex;gap:6px;z-index:9}
+.top button{background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:5px 12px;cursor:pointer;font:12px 'IBM Plex Mono',monospace}.top button.on{background:var(--a);color:var(--on);border-color:var(--a)}
+html[data-l=ca] [lang=en],html[data-l=en] [lang=ca]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}.hero{padding:76px 0 30px}section{padding:30px 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-block;padding:13px 24px;border:1px solid var(--a);color:var(--a);text-decoration:none;font:600 14px 'IBM Plex Mono',monospace;letter-spacing:.06em}
+.btn.pri{background:var(--a);color:var(--on)}.btn:hover{background:var(--a2);border-color:var(--a2);color:#fff}
+.poster{width:100%;display:block;border:1px solid var(--bd)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}.lang{background:var(--card);border:1px solid var(--bd);padding:22px}.lang h3{margin:0 0 4px;font-size:22px}.lang p{margin:0 0 16px;color:var(--mut)}.lang .btn{margin:0 8px 8px 0;padding:10px 18px}
+</style></head><body>
+<div class="top"><button data-l="ca" class="on">CA</button><button data-l="en">EN</button><button id="th" title="theme">◐</button></div>
+<header class="hero"><div class="wrap">
+<div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA<small>sol</small></div>
+<span class="tag" lang="ca">SBS BIM Consulting presenta</span><span class="tag" lang="en">SBS BIM Consulting presents</span>
+<h1>guaita<em>SOL</em> 1.0</h1>
+<p class="lead" lang="ca">Carta solar, càmera amb trajectòries i perfil d'horitzó en un sol fitxer HTML per a mòbil i tauleta. Es pot usar al navegador o instal·lar com a aplicació; no es connecta a cap servidor i funciona sense Internet.</p>
+<p class="lead" lang="en">Sun chart, camera with sun paths and horizon profile in a single HTML file for phone and tablet. Use it in the browser or install it as an app; it connects to no server and works offline.</p>
+<div class="cta" lang="ca"><a class="btn pri" href="https://subi2.github.io/guaitaSol/pagescat/index.html" target="_blank" rel="noopener">▶ Obre l'app (català)</a><a class="btn" href="https://subi2.github.io/guaitaSol/pagescat/HLP_guaitaSOL-ajuda.html">Manual d'ús</a><a class="btn" href="#install">Instal·la-la</a></div>
+<div class="cta" lang="en"><a class="btn pri" href="https://subi2.github.io/guaitaSol/pageseng/index.html" target="_blank" rel="noopener">▶ Open the app (English)</a><a class="btn" href="https://subi2.github.io/guaitaSol/pageseng/HLP_guaitaSOL-help_EN.html">User guide</a><a class="btn" href="#install">Install it</a></div>
+</div></header>
+<main class="wrap">
+<section><img class="poster" lang="ca" src="poster_ca.jpg" alt="guaitaSOL" width="1280" height="720"><img class="poster" lang="en" src="poster_en.jpg" alt="guaitaSOL" width="1280" height="720"></section>
+<section><h2 lang="ca">Funcions</h2><h2 lang="en">Features</h2><div class="st" lang="ca">Què pots fer</div><div class="st" lang="en">What you can do</div>
+<div class="grid" lang="ca"><div class="card"><b>Carta solar</b><p>Diagrama d'alçada i azimut del Sol per a qualsevol lloc i dia, en projecció estereogràfica, equidistant o cilíndrica, amb hora solar o oficial.</p></div><div class="card"><b>Càmera i sensors</b><p>Les trajectòries solars dibuixades sobre la imatge de la càmera, amb brúixola i calibratge amb el Sol.</p></div><div class="card"><b>Perfil d'horitzó</b><p>Marca edificis, muntanyes i arbres apuntant la càmera o tocant el gràfic; importa i exporta JSON o CSV.</p></div><div class="card"><b>Hores de sol directe</b><p>Hores del dia, pèrdua per obstacles, mapa anual (dia × hora), mitjana mensual i exportació CSV.</p></div><div class="card"><b>Precisió contrastada</b><p>Algorisme NOAA verificat amb astronomy-engine: error inferior a 0,05° en alçada i 0,15° en azimut.</p></div><div class="card"><b>Local i privat</b><p>Cap CDN, cap servidor, cap cookie. Posició, perfil i imatges no surten del dispositiu.</p></div></div><div class="grid" lang="en"><div class="card"><b>Sun chart</b><p>Sun altitude and azimuth diagram for any place and day, in stereographic, equidistant or cylindrical projection, with solar or clock time.</p></div><div class="card"><b>Camera and sensors</b><p>Solar paths drawn over the live camera image, with compass and Sun calibration.</p></div><div class="card"><b>Horizon profile</b><p>Mark buildings, mountains and trees by aiming the camera or tapping the chart; import and export JSON or CSV.</p></div><div class="card"><b>Direct sun hours</b><p>Hours per day, loss from obstacles, yearly map (day × time), monthly average and CSV export.</p></div><div class="card"><b>Verified accuracy</b><p>NOAA algorithm checked against astronomy-engine: error under 0.05° in altitude and 0.15° in azimuth.</p></div><div class="card"><b>Local and private</b><p>No CDN, no server, no cookies. Position, profile and images never leave the device.</p></div></div></section>
+<section id="install"><h2 lang="ca">Aplicació (PWA)</h2><h2 lang="en">App (PWA)</h2><div class="st" lang="ca">Instal·la-la al mòbil</div><div class="st" lang="en">Install it on your phone</div>
+<div class="grid" lang="ca"><div class="card"><b>Què és una PWA</b><p>Una <i>aplicació web progressiva</i>: s'instal·la a la pantalla d'inici, s'obre sense barra d'adreces i funciona sense connexió.</p></div><div class="card"><b>Android (Chrome)</b><p>Obre l'app → menú ⋮ → «Instal·la l'aplicació».</p></div><div class="card"><b>iPhone / iPad (Safari)</b><p>Botó Comparteix → «Afegeix a la pantalla d'inici».</p></div><div class="card"><b>Ordinador</b><p>Chrome o Edge: icona d'instal·lar a la barra d'adreces.</p></div></div>
+<div class="grid" lang="en"><div class="card"><b>What a PWA is</b><p>A <i>progressive web app</i>: it installs to the home screen, opens without an address bar and works offline.</p></div><div class="card"><b>Android (Chrome)</b><p>Open the app → ⋮ menu → “Install app”.</p></div><div class="card"><b>iPhone / iPad (Safari)</b><p>Share button → “Add to Home Screen”.</p></div><div class="card"><b>Desktop</b><p>Chrome or Edge: install icon in the address bar.</p></div></div>
+<p style="color:var(--mut);font-size:14px" lang="ca">La càmera i els sensors només funcionen per HTTPS (com aquesta pàgina).</p><p style="color:var(--mut);font-size:14px" lang="en">The camera and sensors only work over HTTPS (like this page).</p></section>
+<section><h2 lang="ca">Accés</h2><h2 lang="en">Access</h2><div class="st" lang="ca">Tria l'idioma</div><div class="st" lang="en">Choose your language</div><div class="two"><div class="lang"><h3>Català</h3><p lang="ca">Aplicació i manual en català.</p><p lang="en">App and guide in Catalan.</p><a class="btn pri" href="https://subi2.github.io/guaitaSol/pagescat/index.html" target="_blank" rel="noopener">▶ <span lang="ca">Obre l'app</span><span lang="en">Open the app</span></a><a class="btn" href="https://subi2.github.io/guaitaSol/pagescat/HLP_guaitaSOL-ajuda.html"><span lang="ca">Manual d'ús</span><span lang="en">User guide</span></a></div><div class="lang"><h3>English</h3><p lang="ca">Aplicació i manual en anglès.</p><p lang="en">App and guide in English.</p><a class="btn pri" href="https://subi2.github.io/guaitaSol/pageseng/index.html" target="_blank" rel="noopener">▶ <span lang="ca">Obre l'app</span><span lang="en">Open the app</span></a><a class="btn" href="https://subi2.github.io/guaitaSol/pageseng/HLP_guaitaSOL-help_EN.html"><span lang="ca">Manual d'ús</span><span lang="en">User guide</span></a></div></div>
+<div class="note warn" lang="ca">Idioma: l'aplicació i la pàgina són en català i anglès. Per llegir-la en un altre idioma (castellà, alemany…), activa la traducció del navegador (Chrome: menú ⋮ › Traduir).</div>
+<div class="note warn" lang="en">Language: the application and this page are in Catalan and English. To read it in another language (Spanish, German…), turn on your browser's translation (Chrome: ⋮ menu › Translate).</div></section>
+<section id="contact"><h2 lang="ca">Contacte</h2><h2 lang="en">Contact</h2><div class="st" lang="ca">Errors i suggeriments</div><div class="st" lang="en">Bugs and suggestions</div>
+<p><a href="https://github.com/subi2/guaitaSol/issues">GitHub Issues</a> · <a href="mailto:guaitaapps@gmail.com">guaitaapps@gmail.com</a> · <a href="https://github.com/subi2/guaitaSol">GitHub</a></p></section>
+</main>
+<footer><div class="in"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA · SOL</div>
+<p>SBS BIM Consulting 2026 · Copyright © 2026 Jordi Subirós · AGPL-3.0-only · <a href="https://github.com/subi2/guaitaSol/blob/main/NOTICE.md">NOTICE</a></p>
+<p lang="ca">Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p><p lang="en">Guaita Apps is distributed “as is”, without any warranty. The tools are designed from research and as technical and educational support; verification of the results and the responsibility arising from their use rest solely with the end user.</p></div></footer>
+<script>
+const R=document.documentElement;
+function sl(l){R.dataset.l=l;R.lang=l;document.querySelectorAll('.top [data-l]').forEach(b=>b.classList.toggle('on',b.dataset.l==l))}
+document.querySelectorAll('.top [data-l]').forEach(b=>b.onclick=()=>sl(b.dataset.l));
+document.getElementById('th').onclick=()=>{const r=document.documentElement;r.dataset.t=r.dataset.t=='l'?'d':'l'};
+</script></body></html>

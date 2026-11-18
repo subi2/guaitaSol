@@ -1,0 +1,67 @@
+<!--
+  Guaita Apps - Suite d'eines autònomes per a arquitectura, BIM i documentació.
+  Copyright (c) 2026 Jordi Subirós
+  GNU Affero General Public License v3.0
+  See LICENSE file for details
+-->
+<!DOCTYPE html>
+<html lang="ca"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>guaitaSOL · Manual d'ús</title>
+<style>:root{--bg:#0E1116;--bg2:#171B21;--card:#1E232B;--bd:#2A313B;--tx:#E7EAEE;--mut:#8B939F;--a:#D6FB41;--a2:#FF2ECC;--a3:#00E5FF;--a4:#FFE500;--on:#1A2000}
+:root[data-t=l]{--bg:#F3F5F7;--bg2:#E8ECF0;--card:#FFFFFF;--bd:#D5DAE1;--tx:#14181E;--mut:#566070;--a:#4F6200;--on:#FFFFFF}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+code,kbd,.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace}
+.cells{display:inline-grid;grid-template-columns:repeat(2,13px);gap:2px;vertical-align:middle}.cells span{display:block;width:13px;height:13px}
+.cells span:nth-child(1){background:#D6FB41}.cells span:nth-child(2){background:#FF2ECC}.cells span:nth-child(3){background:#00E5FF}.cells span:nth-child(4){background:#FFE500}
+.brand{display:flex;align-items:center;gap:10px;font:700 15px 'IBM Plex Mono',monospace;letter-spacing:.2em}.brand small{font-weight:400;color:var(--mut);letter-spacing:.1em;text-transform:lowercase;font-size:12px}
+.tag{display:inline-block;margin:26px 0 10px;padding:2px 10px;border:1px solid var(--a);color:var(--a);font:12px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}h1 em{color:var(--a);font-style:normal}
+.lead{max-width:760px;color:var(--mut);font-size:18px}
+h2{font:12px 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--a);margin:34px 0 0}
+.st{font-size:30px;font-weight:700;margin:2px 0 14px;letter-spacing:-.01em}
+a{color:var(--a)}
+.note{border-left:3px solid var(--a);background:var(--card);padding:10px 16px;margin:16px 0}.note.warn{border-color:var(--a4)}
+kbd{background:var(--card);border:1px solid var(--bd);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:12.5px}
+code{background:var(--card);padding:1px 5px;border-radius:3px;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--bd);padding:16px}.card b{color:var(--a)}.card p{margin:6px 0 0;font-size:15px}
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:26px 24px;color:var(--mut);font-size:13px}
+footer .in{max-width:1100px;margin:0 auto}.fb{display:flex;align-items:center;gap:8px;font:700 12px 'IBM Plex Mono',monospace;letter-spacing:.18em;color:var(--tx);margin-bottom:10px}
+.fb .cells{grid-template-columns:repeat(2,6px)}.fb .cells span{width:6px;height:6px}
+#th{position:fixed;top:12px;right:12px;background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:4px 10px;cursor:pointer;font:12px 'IBM Plex Mono',monospace;z-index:9}
+.hero{padding:56px 24px 40px;max-width:1100px;margin:0 auto}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:220px 1fr;gap:40px}
+nav.toc{position:sticky;top:20px;align-self:start;font:13px 'IBM Plex Mono',monospace;display:flex;flex-direction:column;gap:2px}
+nav.toc a{color:var(--mut);text-decoration:none;padding:5px 10px;border-left:2px solid var(--bd)}
+nav.toc a:hover,nav.toc a.on{color:var(--a);border-color:var(--a);background:var(--bg2)}
+section{padding:8px 0 28px;scroll-margin-top:16px}
+ul{padding-left:22px}li{margin:4px 0}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}nav.toc{position:static;flex-direction:row;flex-wrap:wrap}}
+</style></head><body>
+<button id="th" title="theme">◐</button>
+<header class="hero"><div class="brand"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA<small>sol</small></div>
+<span class="tag">Manual d'ús · 1.0</span><h1>guaita<em>SOL</em></h1><p class="lead">Carta solar, càmera amb trajectòries i perfil d'horitzó en un sol fitxer HTML per a mòbil i tauleta. No es connecta a cap servidor i funciona sense Internet: la teva posició, el teu perfil i les teves imatges no surten mai del dispositiu.</p>
+<p><a href="index.html">▶ Obre l'app</a> · <a href="../pageseng/HLP_guaitaSOL-help_EN.html">English</a></p>
+<div class="note warn">Idioma: l'aplicació i la pàgina són en català i anglès. Per llegir-la en un altre idioma (castellà, alemany…), activa la traducció del navegador (Chrome: menú ⋮ › Traduir).</div></header>
+<div class="wrap"><nav class="toc"><a href="#s-intro">Què fa</a><a href="#s-diagram">Carta solar</a><a href="#s-cam">Càmera i sensors</a><a href="#s-hor">Perfil d'horitzó</a><a href="#s-hours">Hores de sol directe</a><a href="#s-priv">Privadesa i seguretat</a><a href="#s-limits">Límits</a><a href="#s-keys">Dreceres</a><a href="#s-install">Instal·la-la com a aplicació</a><a href="#s-about">Quant a</a></nav><main>
+<section id="s-intro"><h2>01</h2><div class="st">Què fa</div><p><b>guaitaSOL 1.0</b> calcula on és el Sol en qualsevol lloc, dia i hora, i ho mostra de quatre maneres: <b>carta solar</b>, <b>càmera</b> amb les trajectòries sobre la imatge, <b>perfil d'horitzó</b> i <b>hores de sol directe</b>. Funciona sense connexió, en un sol fitxer.</p></section>
+<section id="s-diagram"><h2>02</h2><div class="st">Carta solar</div><p>El diagrama mostra l'alçada i l'azimut del Sol al llarg del dia. La línia verda és el dia seleccionat; els punts són les hores oficials. En groc, blau i gris hi ha el solstici d'estiu, el d'hivern i l'equinocci. Arrossega el dit sobre la trajectòria per moure l'hora.</p><ul><li><b>Estereogràfica</b>: projecció habitual en arquitectura, amb el zenit al centre i el nord amunt.</li><li><b>Equidistant</b>: les alçades són proporcionals a la distància al centre.</li><li><b>Cilíndrica</b>: azimut a l'horitzontal i alçada a la vertical.</li></ul><p>Les línies d'hora poden ser d'<b>hora solar</b> o d'<b>hora oficial</b> (analemes, que inclouen l'horari d'estiu).</p></section>
+<section id="s-cam"><h2>03</h2><div class="st">Càmera i sensors</div><p>Prem <b>Brúixola</b> per activar els sensors i <b>Càmera</b> per veure la imatge. Les trajectòries solars es dibuixen sobre l'horitzó real. Cal servir-la amb <b>HTTPS</b> (per exemple GitHub Pages); des d'un fitxer local el navegador no obre la càmera.</p><ul><li><b>iPhone</b>: demana permís per als sensors; el nord ve de la brúixola d'iOS.</li><li><b>Android</b>: s'usa la brúixola absoluta si hi és; si no, l'orientació és relativa i cal calibrar amb el Sol.</li><li><b>Sense sensors</b>: el simulador d'orientació permet provar-ho a l'ordinador.</li></ul><p>Els sensors dels mòbils tenen errors típics de 5° a 10°. Calibra amb <b>Calibra amb el Sol</b> o ajusta el rumb a mà.</p></section>
+<section id="s-hor"><h2>04</h2><div class="st">Perfil d'horitzó</div><p>El perfil és la línia d'obstacles (edificis, muntanyes, arbres) vista des del teu punt. Es defineix amb punts (azimut, alçada) i s'interpola entre ells. Pots afegir-los de tres maneres:</p><ul><li>Apuntant la càmera a l'obstacle i prement <b>Punt al centre</b>.</li><li>Activant <b>Marca</b> i tocant la imatge de la càmera o el gràfic d'horitzó.</li><li>Escrivint-los a mà, o important un fitxer JSON o CSV (azimut,alçada).</li></ul><p>El perfil es desa al dispositiu i es veu a totes les vistes.</p></section>
+<section id="s-hours"><h2>05</h2><div class="st">Hores de sol directe</div><p>Calcula les hores de sol directe del dia, el total perdut per obstacles, el mapa anual (dia × hora) i la mitjana per mes. L'exportació CSV recull tot l'any. Els resultats són geomètrics: no tenen en compte els núvols.</p></section>
+<section id="s-priv"><h2>06</h2><div class="st">Privadesa i seguretat</div><p>guaitaSOL no envia res enlloc. Una política de seguretat (<code>connect-src 'none'</code>) impedeix que la pàgina es connecti a cap servidor. La posició, el perfil i les fotos només viuen al dispositiu. La càmera no desa cap imatge: només la mostra.</p><p>Si la instal·les com a aplicació (PWA), el navegador només descarrega els fitxers de l'app (manifest, icones i service worker) del mateix lloc; mai dades teves ni de tercers.</p><p>Les preferències es desen al <code>localStorage</code> del navegador.</p></section>
+<section id="s-limits"><h2>07</h2><div class="st">Límits</div><ul><li>El càlcul solar (algorisme NOAA) té un error inferior a 0,05° en alçada i 0,15° en azimut respecte d'efemèrides d'alta precisió.</li><li>La refracció atmosfèrica es modela de manera estàndard; amb horitzons molt baixos pot variar.</li><li>La brúixola depèn de la declinació magnètica; ajusta-la al diàleg de lloc.</li><li>Sobre objectes metàl·lics o prop d'imants, la brúixola es desvia.</li></ul></section>
+<section id="s-keys"><h2>08</h2><div class="st">Dreceres</div><ul><li><code>←</code> <code>→</code> dia anterior o següent</li><li><code>Espai</code> animació del dia</li><li><code>N</code> data i hora actuals</li><li><code>L</code> lloc</li><li><code>M</code> marcar punts</li><li><code>Z</code> desfer punt</li><li><code>F1</code> ajuda</li></ul></section>
+<section id="s-install"><h2>09</h2><div class="st">Instal·la-la com a aplicació</div><p>La versió publicada és una <b>PWA</b> (aplicació web progressiva): s'instal·la a la pantalla d'inici i funciona sense connexió.</p><ul><li><b>Android (Chrome):</b> menú ⋮ → «Instal·la l'aplicació» o «Afegeix a la pantalla d'inici».</li><li><b>iPhone / iPad (Safari):</b> botó Comparteix → «Afegeix a la pantalla d'inici».</li><li><b>Ordinador (Chrome, Edge):</b> icona d'instal·lar a la dreta de la barra d'adreces.</li></ul><p>Cal servir-la per HTTPS (GitHub Pages ho fa). Si obres el fitxer en local (<code>file://</code>) funciona com una pàgina normal, sense PWA i sense càmera.</p></section>
+<section id="s-about"><h2>10</h2><div class="st">Quant a</div><p><b>guaitaSOL 1.0</b> · suite Guaita Apps.</p><p>Copyright (C) 2026 SBS BiM Consulting, Jordi Subirós. Llicència AGPL-3.0-only. Fonts IBM Plex (SIL OFL 1.1) incrustades.</p></section>
+</main></div>
+<footer><div class="in"><div class="fb"><span class="cells"><span></span><span></span><span></span><span></span></span>GUAITA · SOL</div>
+<p>SBS BIM Consulting 2026 · Copyright © 2026 Jordi Subirós · AGPL-3.0-only</p><p>Guaita Apps es distribueix «tal com és», sense cap garantia. Les eines estan pensades desde la recerca i com a suport tècnic i educatiu; la verificació dels resultats i la responsabilitat derivada del seu ús recauen únicament sobre l'usuari final.</p></div></footer>
+<script>
+const ls=[...document.querySelectorAll('nav.toc a')],ss=ls.map(a=>document.querySelector(a.getAttribute('href')));
+function on(){let y=scrollY+120,k=0;ss.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i});ls.forEach((a,i)=>a.classList.toggle('on',i==k))}
+addEventListener('scroll',on);on();
+document.getElementById('th').onclick=()=>{const r=document.documentElement;r.dataset.t=r.dataset.t=='l'?'d':'l'};
+</script></body></html>

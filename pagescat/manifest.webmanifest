@@ -1,0 +1,37 @@
+{
+  "id": "./",
+  "name": "guaitaSOL · carta solar",
+  "short_name": "guaitaSOL",
+  "lang": "ca",
+  "description": "Carta solar, càmera amb trajectòries i perfil d'horitzó. Sense xarxa, un sol HTML.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#171B21",
+  "theme_color": "#171B21",
+  "categories": [
+    "utilities",
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
